@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 
 cmake_policy(SET CMP0091 NEW)
