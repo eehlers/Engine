@@ -1,13 +1,11 @@
 cmake_minimum_required(VERSION 3.8)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 
 cmake_policy(SET CMP0091 NEW)
 
-
 project(ORE CXX)
 
-option(BUILD_DOC "Build documentation" ON)
+option(BUILD_DOC "Build documentation" OFF)
 
 include(CTest)
 
@@ -23,5 +21,3 @@ add_subdirectory("App")
 
 # add examples testsuite
 add_test(NAME examples WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Examples COMMAND nosetests run_examples_testsuite.py)
-
-include(CPack)
