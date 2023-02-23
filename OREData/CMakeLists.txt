@@ -11,7 +11,11 @@ get_library_name("OREData" ORED_LIB_NAME)
 get_library_name("QuantExt" QLE_LIB_NAME)
 set_ql_library_name()
 
-find_package (Boost REQUIRED COMPONENTS unit_test_framework regex system date_time serialization filesystem timer OPTIONAL_COMPONENTS chrono)
+if (ORE_BUILD_TESTS)
+    find_package (Boost REQUIRED COMPONENTS unit_test_framework regex system date_time serialization filesystem timer OPTIONAL_COMPONENTS chrono)
+else()
+    find_package (Boost REQUIRED COMPONENTS regex system date_time serialization filesystem timer OPTIONAL_COMPONENTS chrono unit_test_framework )
+endif()
 
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${QUANTLIB_SOURCE_DIR})
