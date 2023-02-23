@@ -109,9 +109,7 @@ else()
     # add some warnings
     add_compiler_flag("-Wall" supportsWall)
     add_compiler_flag("-Wsometimes-uninitialized" supportsSometimesUninitialized)
-    # FIXME this warning seems to cause problems for the musllinux build,
-    # turning it off as an experiment
-    #add_compiler_flag("-Wmaybe-uninitialized" supportsMaybeUninitialized)
+    add_compiler_flag("-Wmaybe-uninitialized" supportsMaybeUninitialized)
 
     # turn the following warnings into errors
     add_compiler_flag("-Werror=non-virtual-dtor" supportsNonVirtualDtor)
