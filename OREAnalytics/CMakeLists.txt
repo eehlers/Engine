@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.8)
-
 project(OREAnalytics CXX)
 
 enable_testing()
@@ -34,5 +33,9 @@ add_link_directory_if_exists("${CMAKE_BINARY_DIR}/QuantExt/qle")
 add_link_directory_if_exists("${CMAKE_BINARY_DIR}/OREData/ored")
 
 add_subdirectory("orea")
-add_subdirectory("doc")
-add_subdirectory("test")
+if (ORE_BUILD_DOC)
+    add_subdirectory("doc")
+endif()
+if (ORE_BUILD_TESTS)
+    add_subdirectory("test")
+endif()
